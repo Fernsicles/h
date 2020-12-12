@@ -11,3 +11,7 @@ The input for encode cannot contain anything other than the 26 letters of the En
 ./h e "MESSAGE"
 ./h d "HhHHhHhHhhHHhhHHHhhHHhhhhHHHhhHhHhh"
 ```
+
+# The method behind the madness
+This program uppercases the input, then for each letter in the input, it subtracts 64 from the character and then translates it into binary 'H'.
+An uppercase 'H' stands for a 1, while a lowercase 'h' is a 0.
