@@ -1,15 +1,14 @@
 #include <string>
-#include <boost/algorithm/string.hpp>
 #include <iostream>
+#include <cctype>
 
 using namespace std;
 int main(int argc, char **argv) {
 	string input = string(argv[2]);
 	string output = "";
 	if(string("e").compare(argv[1]) == 0) {
-		boost::to_upper(input);
 		for(int i = 0; input[i] != 0; i++) {
-			unsigned char x = input[i];
+			unsigned char x = toupper(input[i]);
 			x -= 64;
 			for(int j = 0b1; j <= 0b10000; j <<= 1) {
 				if(x & j) {
