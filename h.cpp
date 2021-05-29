@@ -12,7 +12,7 @@ void encode(char *encode_string) {
 			case '!':
 				cout << "hHhHH";
 				break;
-			case '"':
+			case ' ':
 				cout << "HHhHH";
 				break;
 			case '\'':
@@ -55,7 +55,7 @@ void decode(char *decode_string) {
 				x = '!';
 				break;
 			case 27:
-				x = '"';
+				x = ' ';
 				break;
 			case 28:
 				x = '\'';
