@@ -4,40 +4,6 @@
 #include <unistd.h>
 
 using namespace std;
-int main(int argc, char **argv) {
-	extern char *optarg;
-	extern int optind;
-	int c, err = 0;
-	int eflag = 0, dflag = 0, hflag = 0;
-	char *estring, *dstring;
-	static char usage[] = "usage: h [-h] [-d decode_string] [-e encode_string]";
-	while((c = getopt(argc, argv, "hd:e:")) != -1) {
-		switch(c) {
-			case 'h':
-				hflag = 1;
-				break;
-			case 'd':
-				dflag = 1;
-				dstring = optarg;
-				break;
-			case 'e':
-				eflag = 1;
-				estring = optarg;
-				break;
-			default:
-				cout << endl;
-				abort();
-		}
-	}
-
-	if(hflag) {
-		cout << usage << endl;
-	} if(dflag) {
-		decode(dstring);
-	} if(eflag) {
-		encode(estring);
-	}
-}
 
 void encode(char *encode_string) {
 	for(int i = 0; encode_string[i] != 0; i++) {
@@ -110,4 +76,39 @@ void decode(char *decode_string) {
 		cout << x;
 	}
 	cout << endl;
+}
+
+int main(int argc, char **argv) {
+	extern char *optarg;
+	extern int optind;
+	int c, err = 0;
+	int eflag = 0, dflag = 0, hflag = 0;
+	char *estring, *dstring;
+	static char usage[] = "usage: h [-h] [-d decode_string] [-e encode_string]";
+	while((c = getopt(argc, argv, "hd:e:")) != -1) {
+		switch(c) {
+			case 'h':
+				hflag = 1;
+				break;
+			case 'd':
+				dflag = 1;
+				dstring = optarg;
+				break;
+			case 'e':
+				eflag = 1;
+				estring = optarg;
+				break;
+			default:
+				cout << endl;
+				abort();
+		}
+	}
+
+	if(hflag) {
+		cout << usage << endl;
+	} if(dflag) {
+		decode(dstring);
+	} if(eflag) {
+		encode(estring);
+	}
 }
